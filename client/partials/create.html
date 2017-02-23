@@ -1,0 +1,63 @@
+<div ng-controller='heroController'>
+  <p style="color: red;" ng-repeat='error in errors track by $index'>{{error}}</p>
+<form ng-submit="add()">
+  <p><input type="text" ng-model="hero.name" placeholder="Your Hero's name"></p>
+  <p><input type="text" ng-model="hero.power" placeholder="Your Hero's power"></p>
+  <input type="submit" value='Add hero'>
+</form>
+
+<table>
+    <thead><h2>Active</h2>
+      <tr>
+        <th>Hero Name</th>
+        <th>Hero Power</th>
+        <th>Likes</th>
+        <th>Action</th>
+        <td>Change Status</td>
+      </tr>
+      <td>
+        <!-- <tr ng-repeat='quote in allquotes | limitTo:3 '> -->
+        <tr ng-repeat='heroes in activeHeroes'>
+
+          <td>{{heroes.name}}</td>
+          <td>{{heroes.power}}</td>
+          <td>{{heroes.likes}}</td>
+          <td>
+            <form ng-submit="addLikes(heroes._id)">
+              <input type="submit" value="Like">
+            </form>
+          </td>
+          <td>{{heroes.status}}</td>
+
+        </tr>
+      </td>
+    </thead>
+  </table>
+  <table>
+      <thead><h2>Inactive</h2>
+        <tr>
+          <th>Hero Name</th>
+          <th>Hero Power</th>
+          <th>Likes</th>
+          <th>Action</th>
+          <td>Change Status</td>
+        </tr>
+        <td>
+          <!-- <tr ng-repeat='quote in allquotes | limitTo:3 '> -->
+          <tr ng-repeat='heroes in inactiveHeroes'>
+
+            <td>{{heroes.name}}</td>
+            <td>{{heroes.power}}</td>
+            <td>{{heroes.likes}}</td>
+            <td>
+              <form ng-submit="addLikes(heroes._id)">
+                <input type="submit" value="Like">
+              </form>
+            </td>
+            <td>{{heroes.status}}</td>
+
+          </tr>
+        </td>
+      </thead>
+    </table>
+</div>
